@@ -1,35 +1,70 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { History, ScanLine, QrCode, Settings } from "lucide-react-native";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+    <Tabs screenOptions={{ 
+      headerShown: false, 
+      tabBarPosition: "top", 
+      tabBarActiveTintColor: "#ffc401", 
+      tabBarInactiveTintColor: "#ffffff", 
+
+      tabBarLabelStyle: { 
+        fontSize: 14, 
+        fontWeight: "600", 
+      }, 
+      tabBarStyle: { 
+        height: 120, 
+        backgroundColor: "#00777B", 
+        paddingTop: 50, 
+        paddingHorizontal:5, 
+        elevation: 0, 
+        shadowOpacity: 0, 
+        borderBottomWidth: 0, 
+      }, 
+      }} 
+    >
       <Tabs.Screen
-        name="index"
+        name="scan"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Scan",
+          tabBarIcon: ({ size, color }) => (
+            <ScanLine size={size} color={color} />
+          ),
+         }}
+      />
+
+      <Tabs.Screen
+        name="create"
+        options={{
+          title: "Create",
+          tabBarIcon: ({ size, color }) => (
+            <QrCode size={size} color={color} />
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="history"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "History",
+          tabBarIcon: ({ size, color}) =>(
+            <History size={size} color={color} />
+          ) 
         }}
       />
+
+      <Tabs.Screen
+        name="setting"
+        options={{
+            title: "Settings",
+            tabBarIcon: ({ size, color }) => (
+                <Settings size={size} color={color} />
+            )
+        }}
+      />
+
     </Tabs>
+    
   );
 }
