@@ -21,47 +21,47 @@ export default function Create() {
       type: 'text',
       icon: ScanText,
       title: "Text",
-      onPress: () => router.push('/QrScreens/textqr'),
+      onPress: () => router.push('/generate/textqr'),
     },
     {
       title: "Website",
       icon: Globe,
-      onPress: () => console.log("Website"),
+      onPress: () => router.push('/generate/website'),
     },
     {
       title: "Wi-Fi",
       icon: Wifi,
-      onPress: () => console.log("Wi-Fi"),
+      onPress: () => router.push('/generate/wifi'),
     },
     {
       title: "Contact",
       icon: UserRound,
-      onPress: () => console.log("Contact"),
+      onPress: () => router.push('/generate/contact'),
     },
     {
       title: "Email",
       icon: Mail,
-      onPress: () => console.log("Email"),
+      onPress: () => router.push('/generate/email'),
     },
     {
       title: "Message",
       icon: MessageSquare,
-      onPress: () => console.log("Message"),
+      onPress: () => router.push('/generate/message'),
     },
     {
       title: "Location",
       icon: MapPin,
-      onPress: () => console.log("Location"),
+      onPress: () => router.push('/generate/location'),
     },
     {
       title: "Event",
       icon: CalendarDays,
-      onPress: () => console.log("Event"),
+      onPress: () => router.push('/generate/event'),
     },
     {
       title: "More",
       icon: MoreHorizontal,
-      onPress: () => console.log("More"),
+      onPress: () => router.push('/generate/more'),
     },
   ]
 

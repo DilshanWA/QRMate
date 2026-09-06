@@ -4,6 +4,7 @@ import { View,Text, Pressable } from 'react-native'
 import { CameraView, CameraType, useCameraPermissions } from 'expo-camera'
 import { ScanLine, Camera, Flashlight, Image } from 'lucide-react-native';
 import { useRouter, useFocusEffect } from 'expo-router';
+import { detectQRType } from '@/utils/qrType';
 
 export default function Scan() {
   const router = useRouter();
@@ -66,11 +67,12 @@ export default function Scan() {
   }) =>{
     if(scanned) return;
     setScaned(true);
+    const qrType = detectQRType(data);
     router.push({
-      pathname: '/results',
+      pathname: '/scanresults',
       params: { 
-        type: type.toString(), 
         data: data.toString(),
+        qrType: qrType.toString(),
       },
     });
   }
