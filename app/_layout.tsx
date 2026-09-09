@@ -12,7 +12,8 @@ export default function RootLayout() {
     <>
       <Stack
         screenOptions={{
-          animation: 'fade',
+          animation: 'slide_from_right',
+          headerTintColor: '#ffffff',
         }}
       >
         <Stack.Screen
@@ -41,8 +42,20 @@ export default function RootLayout() {
             headerShadowVisible: false,
           }}
         />
-      </Stack>
 
+        <Stack.Screen
+          name="preview"
+          options={{
+            headerShown: true,
+            title: 'Your QR Code',
+            headerStyle: {
+              backgroundColor: '#00777B',
+            },
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+          }}
+        />
+      </Stack>
       <StatusBar style="auto" />
     </>
   );
